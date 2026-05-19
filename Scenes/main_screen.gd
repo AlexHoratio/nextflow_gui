@@ -47,5 +47,6 @@ func _on_select_output_folder_pressed() -> void:
 	dialog.popup_centered_ratio()
 
 func _on_ready_pressed():
-	var window = Window.new()
-	add_child(window)
+	#var window = Window.new()
+	#add_child(window)
+	print(OS.create_process("konsole", ["-e", "nextflow run nf-core/funcscan -r 3.0.0"], true))
