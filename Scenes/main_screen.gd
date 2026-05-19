@@ -49,4 +49,7 @@ func _on_select_output_folder_pressed() -> void:
 func _on_ready_pressed():
 	#var window = Window.new()
 	#add_child(window)
-	print(OS.create_process("konsole", ["-e", "nextflow run nf-core/funcscan -r 3.0.0"], true))
+	var nextflow_command = "nextflow run nf-core/funcscan -r 3.0.0 -profile docker"
+	nextflow_command += " --input \"" + OS.get_user_data_dir() + "/samplesheet.csv\""
+	nextflow_command += " --outdir " + get_node("CanvasLayer/body/w/VBoxContainer/parameters/output_dir/LineEdit").text
+	print(OS.create_process("gnome-terminal", ["-e", nextflow_command], true))
