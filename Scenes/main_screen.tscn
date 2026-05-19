@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bgqglerkcylxx" path="res://addons/SmoothScroll/smooth_scroll_container.gd" id="2_y1wm0"]
 [ext_resource type="Script" uid="uid://b7h0k2h2qwlqv" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="3_qm5cq"]
 [ext_resource type="Script" uid="uid://dfjj07ni0qchy" path="res://Scenes/table.gd" id="5_salsw"]
+[ext_resource type="Script" uid="uid://c1xmjgryowag" path="res://Scenes/ready.gd" id="6_salsw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p8vjv"]
 font_size = 48
@@ -121,7 +122,7 @@ offset_top = -694.0
 offset_bottom = -76.0
 grow_horizontal = 2
 grow_vertical = 0
-scroll_vertical = 286
+scroll_vertical = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/body/w" unique_id=232391129]
 layout_mode = 2
@@ -221,6 +222,7 @@ text = "Select samplesheet.csv"
 metadata/_smooth_scroll_default_mouse_filter_set = true
 
 [node name="generate_samplesheet" type="Button" parent="CanvasLayer/body/w/VBoxContainer/input/files" unique_id=955006288]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -327,6 +329,7 @@ anchor_bottom = 1.0
 offset_top = -68.0
 grow_horizontal = 2
 grow_vertical = 0
+script = ExtResource("6_salsw")
 
 [node name="ready" type="Button" parent="CanvasLayer/body/ready" unique_id=141964553]
 layout_mode = 0
@@ -334,14 +337,15 @@ offset_left = 19.0
 offset_top = 16.0
 offset_right = 156.0
 offset_bottom = 47.0
+disabled = true
 text = "Preview & Run"
 
 [node name="status" type="RichTextLabel" parent="CanvasLayer/body/ready" unique_id=742668734]
 layout_mode = 0
-offset_left = 163.0
-offset_top = 19.0
-offset_right = 889.0
-offset_bottom = 45.0
+offset_left = 166.0
+offset_top = 20.0
+offset_right = 892.0
+offset_bottom = 46.0
 bbcode_enabled = true
 text = "[color=red]needs output folder!"
 scroll_active = false
@@ -355,3 +359,4 @@ scroll_active = false
 [connection signal="pressed" from="CanvasLayer/body/w/VBoxContainer/input/files/select_samplesheet" to="CanvasLayer/body/w/VBoxContainer/input" method="_on_select_samplesheet_pressed"]
 [connection signal="pressed" from="CanvasLayer/body/w/VBoxContainer/input/files/generate_samplesheet" to="." method="_on_generate_samplesheet_pressed"]
 [connection signal="pressed" from="CanvasLayer/body/w/VBoxContainer/parameters/output_dir/select_output_folder" to="." method="_on_select_output_folder_pressed"]
+[connection signal="pressed" from="CanvasLayer/body/ready/ready" to="." method="_on_ready_pressed"]

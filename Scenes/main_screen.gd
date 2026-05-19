@@ -45,3 +45,6 @@ func _on_select_output_folder_pressed() -> void:
 	dialog.connect("dir_selected", output_folder_selected)
 	add_child(dialog)
 	dialog.popup_centered_ratio()
+
+func _on_ready_pressed():
+	pass # Replace with function body.
