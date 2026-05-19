@@ -32,14 +32,34 @@ func update_col_widths_to_ideal() -> void:
 	for row in get_children():
 		for cell in row.get_children():
 			cell.custom_minimum_size.x = ideal_col_widths[cell.get_index()]
+			
+	var total_width = 0
+	for width in ideal_col_widths.values():
+		total_width += width
+		
+	if total_width < get_parent().size.x:
+		var extra_to_last_cell = get_parent().size.x - total_width
+		
+		for row in get_children():
+			row.get_child(row.get_children().size() - 1).custom_minimum_size.x += extra_to_last_cell
 
 func set_data(data) -> void:
 	for child in get_children():
 		child.queue_free()
 		
+	var row_id = 0
 	for row in data:
 		var new_row = load("res://Prefabs/row.tscn").instantiate()
 		new_row.set_cell_data(row)
+		new_row.is_header = row_id == 0
+		new_row.cell_edited.connect(cell_edited)
 		add_child(new_row)
 		
+		row_id += 1
+		
 	update_col_widths_to_ideal()
+
+func cell_edited() -> void:
+	update_col_widths_to_ideal()
+	
+	get_parent().get_parent().get_parent().generate_samplesheet()

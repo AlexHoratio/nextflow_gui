@@ -2,6 +2,27 @@
 
 [ext_resource type="Script" uid="uid://b2o3bpevoyev" path="res://Prefabs/cell.gd" id="1_waxaa"]
 
+[sub_resource type="FontVariation" id="FontVariation_waxaa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_173wb"]
+content_margin_left = 10.0
+bg_color = Color(0.11858138, 0.11858139, 0.11858132, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3854925, 0.38549247, 0.38549247, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_waxaa"]
+content_margin_left = 10.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_waxaa"]
+LineEdit/colors/font_uneditable_color = Color(1, 1, 1, 1)
+LineEdit/fonts/font = SubResource("FontVariation_waxaa")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_173wb")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_waxaa")
+
 [node name="cell" type="Control" unique_id=1595927326]
 custom_minimum_size = Vector2(64, 32)
 layout_mode = 3
@@ -11,6 +32,7 @@ script = ExtResource("1_waxaa")
 metadata/_smooth_scroll_default_mouse_filter_set = true
 
 [node name="Panel" type="Panel" parent="." unique_id=1274659960]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -21,15 +43,18 @@ grow_vertical = 2
 mouse_filter = 1
 metadata/_smooth_scroll_default_mouse_filter_set = true
 
-[node name="Label" type="Label" parent="Panel" unique_id=1590480566]
+[node name="Label" type="LineEdit" parent="Panel" unique_id=875344331]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.25
+offset_right = 2.25
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme = SubResource("Theme_waxaa")
 text = "sample"
-horizontal_alignment = 1
-vertical_alignment = 1
 metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[connection signal="text_changed" from="Panel/Label" to="." method="_on_label_text_changed"]

@@ -170,11 +170,13 @@ grow_vertical = 2
 script = ExtResource("2_y1wm0")
 wheel_scroll_damper = SubResource("Resource_057lb")
 dragging_scroll_damper = SubResource("Resource_6xyvr")
+allow_overdragging = false
 metadata/_custom_type_script = "uid://bgqglerkcylxx"
 metadata/_smooth_scroll_default_mouse_filter_set = true
 
 [node name="table" type="VBoxContainer" parent="CanvasLayer/body/w/VBoxContainer/input/files/SmoothScrollContainer" unique_id=1956977444]
 layout_mode = 2
+theme_override_constants/separation = 0
 script = ExtResource("5_salsw")
 metadata/_smooth_scroll_default_mouse_filter_set = true
 

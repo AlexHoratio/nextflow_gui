@@ -6,6 +6,17 @@ func _ready():
 	pass
 
 func generate_samplesheet() -> void:
+	
+	var samplesheet_data_from_gui = []
+	for row in $files/SmoothScrollContainer/table.get_children():
+		var row_data = []
+		for cell in row.get_children():
+			row_data.append(cell.get_data())
+		
+		samplesheet_data_from_gui.append(row_data)
+	
+	samplesheet_data = samplesheet_data_from_gui
+	
 	var samplesheet_file = FileAccess.open("user://samplesheet.csv", FileAccess.WRITE)
 	
 	var samplesheet_text = ""

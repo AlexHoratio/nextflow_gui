@@ -47,4 +47,5 @@ func _on_select_output_folder_pressed() -> void:
 	dialog.popup_centered_ratio()
 
 func _on_ready_pressed():
-	pass # Replace with function body.
+	var window = Window.new()
+	add_child(window)

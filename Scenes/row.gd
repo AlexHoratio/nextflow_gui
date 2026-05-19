@@ -1,5 +1,8 @@
 extends HBoxContainer
 
+signal cell_edited
+
+var is_header = false
 var cell_text = ["sample", "fasta"]
 
 func _ready() -> void:
@@ -11,6 +14,8 @@ func _process(delta: float) -> void:
 func update_cells() -> void:
 	for cell in get_children():
 		cell.get_node("Panel/Label").text = cell_text[cell.get_index()]
+		
+		cell.set_editable(!is_header)
 
 func set_cell_data(data) -> void:
 	for child in get_children():
@@ -20,6 +25,7 @@ func set_cell_data(data) -> void:
 	for cell_data in data:
 		var new_cell = load("res://Prefabs/cell.tscn").instantiate()
 		new_cell.set_data(cell_data)
+		new_cell.edited.connect(edited)
 		add_child(new_cell)
 
 func get_ideal_width_per_cell() -> Dictionary:
@@ -28,3 +34,6 @@ func get_ideal_width_per_cell() -> Dictionary:
 		ideal_widths[cell.get_index()] = cell.get_ideal_width()
 	
 	return ideal_widths
+
+func edited() -> void:
+	emit_signal("cell_edited")
