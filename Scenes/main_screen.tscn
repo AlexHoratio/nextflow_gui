@@ -1,0 +1,357 @@
+[gd_scene format=3 uid="uid://b6gf7i1gok7q3"]
+
+[ext_resource type="Script" uid="uid://dk8m7emf2uun0" path="res://Scenes/main_screen.gd" id="1_p8vjv"]
+[ext_resource type="Script" uid="uid://cmjlv0oi80vo1" path="res://Scenes/input.gd" id="2_b1vw1"]
+[ext_resource type="Script" uid="uid://bgqglerkcylxx" path="res://addons/SmoothScroll/smooth_scroll_container.gd" id="2_y1wm0"]
+[ext_resource type="Script" uid="uid://b7h0k2h2qwlqv" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="3_qm5cq"]
+[ext_resource type="Script" uid="uid://dfjj07ni0qchy" path="res://Scenes/table.gd" id="5_salsw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p8vjv"]
+font_size = 48
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b1vw1"]
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_057lb"]
+script = ExtResource("3_qm5cq")
+
+[sub_resource type="Resource" id="Resource_6xyvr"]
+script = ExtResource("3_qm5cq")
+
+[node name="main_screen" type="Node2D" unique_id=1144326798]
+z_index = 3
+script = ExtResource("1_p8vjv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=971600458]
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer" unique_id=1361294560]
+self_modulate = Color(0.883378, 0.88337797, 0.88337797, 1)
+offset_top = 6.0
+offset_right = 899.0
+offset_bottom = 88.0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "nextflow gui :)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="drag_window" type="Button" parent="CanvasLayer" unique_id=774778172]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 74.0
+grow_horizontal = 2
+
+[node name="x" type="LinkButton" parent="CanvasLayer" unique_id=302818787]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -51.0
+offset_top = 23.0
+offset_right = -31.0
+offset_bottom = 68.0
+grow_horizontal = 0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "X"
+underline = 1
+
+[node name="minimize" type="LinkButton" parent="CanvasLayer" unique_id=871875820]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -106.0
+offset_top = 19.0
+offset_right = -79.0
+offset_bottom = 64.0
+grow_horizontal = 0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "__"
+underline = 1
+
+[node name="body" type="Control" parent="CanvasLayer" unique_id=126518598]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -809.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="divider" type="Line2D" parent="CanvasLayer/body" unique_id=292587540]
+points = PackedVector2Array(0, 0, 900, 0)
+default_color = Color(0, 0, 0, 1)
+
+[node name="pipeline_name" type="Label" parent="CanvasLayer/body" unique_id=1572206806]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 19.0
+offset_bottom = 86.0
+grow_horizontal = 2
+text = "nf-core/funcscan"
+label_settings = SubResource("LabelSettings_p8vjv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="divider2" type="Line2D" parent="CanvasLayer/body" unique_id=189877280]
+position = Vector2(0, 110)
+points = PackedVector2Array(0, 0, 900, 0)
+default_color = Color(0, 0, 0, 1)
+
+[node name="divider4" type="Line2D" parent="CanvasLayer/body" unique_id=693249804]
+position = Vector2(0, 736)
+points = PackedVector2Array(0, 0, 900, 0)
+default_color = Color(0, 0, 0, 1)
+
+[node name="w" type="ScrollContainer" parent="CanvasLayer/body" unique_id=62010093]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -694.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 0
+scroll_vertical = 286
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/body/w" unique_id=232391129]
+layout_mode = 2
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="input" type="Control" parent="CanvasLayer/body/w/VBoxContainer" unique_id=898500868]
+custom_minimum_size = Vector2(900, 500)
+layout_mode = 2
+mouse_filter = 1
+script = ExtResource("2_b1vw1")
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="header" type="Label" parent="CanvasLayer/body/w/VBoxContainer/input" unique_id=983391508]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 13.0
+offset_right = 106.0
+offset_bottom = 58.0
+mouse_filter = 1
+text = "Input"
+label_settings = SubResource("LabelSettings_b1vw1")
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="files" type="ColorRect" parent="CanvasLayer/body/w/VBoxContainer/input" unique_id=885889526]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -415.5
+offset_top = 84.0
+offset_right = 415.5
+offset_bottom = 380.0
+grow_horizontal = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.16078432)
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="CanvasLayer/body/w/VBoxContainer/input/files" unique_id=1243175091]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_y1wm0")
+wheel_scroll_damper = SubResource("Resource_057lb")
+dragging_scroll_damper = SubResource("Resource_6xyvr")
+metadata/_custom_type_script = "uid://bgqglerkcylxx"
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="table" type="VBoxContainer" parent="CanvasLayer/body/w/VBoxContainer/input/files/SmoothScrollContainer" unique_id=1956977444]
+layout_mode = 2
+script = ExtResource("5_salsw")
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="select_files" type="Button" parent="CanvasLayer/body/w/VBoxContainer/input/files" unique_id=1123092385]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 23.0
+offset_right = 149.0
+offset_bottom = 54.0
+grow_vertical = 0
+mouse_filter = 1
+text = "Select input files..."
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="select_folder" type="Button" parent="CanvasLayer/body/w/VBoxContainer/input/files" unique_id=33843865]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 171.5
+offset_top = 23.0
+offset_right = 334.5
+offset_bottom = 54.0
+grow_vertical = 0
+mouse_filter = 1
+disabled = true
+text = "Select input folder..."
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="select_samplesheet" type="Button" parent="CanvasLayer/body/w/VBoxContainer/input/files" unique_id=699346967]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 359.5
+offset_top = 23.0
+offset_right = 545.5
+offset_bottom = 54.0
+grow_vertical = 0
+mouse_filter = 1
+disabled = true
+text = "Select samplesheet.csv"
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="generate_samplesheet" type="Button" parent="CanvasLayer/body/w/VBoxContainer/input/files" unique_id=955006288]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 619.5
+offset_top = 23.0
+offset_right = 831.5
+offset_bottom = 54.0
+grow_vertical = 0
+mouse_filter = 1
+text = "Generate samplesheet.csv"
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="divider3" type="Line2D" parent="CanvasLayer/body/w/VBoxContainer" unique_id=250333505]
+position = Vector2(0, 480)
+points = PackedVector2Array(0, 0, 900, 0)
+default_color = Color(0, 0, 0, 1)
+
+[node name="parameters" type="Control" parent="CanvasLayer/body/w/VBoxContainer" unique_id=1860113882]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+
+[node name="header" type="Label" parent="CanvasLayer/body/w/VBoxContainer/parameters" unique_id=1967743113]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 13.0
+offset_right = 106.0
+offset_bottom = 58.0
+mouse_filter = 1
+text = "Parameters"
+label_settings = SubResource("LabelSettings_b1vw1")
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="screening_type" type="Control" parent="CanvasLayer/body/w/VBoxContainer/parameters" unique_id=136626892]
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 74.0
+offset_right = 568.0
+offset_bottom = 202.0
+
+[node name="run_amp" type="CheckBox" parent="CanvasLayer/body/w/VBoxContainer/parameters/screening_type" unique_id=330070581]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 7.0
+offset_right = 509.0
+offset_bottom = 38.0
+theme_override_constants/outline_size = 6
+text = "Activate anti-microbial peptide (AMP) genes screening tools"
+
+[node name="run_arg" type="CheckBox" parent="CanvasLayer/body/w/VBoxContainer/parameters/screening_type" unique_id=1023689087]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 43.0
+offset_right = 518.0
+offset_bottom = 74.0
+theme_override_constants/outline_size = 6
+text = "Activate anti-microbial resistance gene (ARG) screening tools"
+
+[node name="run_bgc" type="CheckBox" parent="CanvasLayer/body/w/VBoxContainer/parameters/screening_type" unique_id=1428898378]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 79.0
+offset_right = 509.0
+offset_bottom = 110.0
+theme_override_constants/outline_size = 6
+text = "Activate biosynthetic gene cluster (BGC) screening tools"
+
+[node name="output_dir" type="Control" parent="CanvasLayer/body/w/VBoxContainer/parameters" unique_id=2079088926]
+anchors_preset = 0
+offset_left = 22.0
+offset_top = 337.0
+offset_right = 922.0
+offset_bottom = 337.0
+
+[node name="Label" type="Label" parent="CanvasLayer/body/w/VBoxContainer/parameters/output_dir" unique_id=471629943]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 60.0
+offset_bottom = 27.0
+theme_override_constants/outline_size = 4
+text = "Output:"
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/body/w/VBoxContainer/parameters/output_dir" unique_id=1324077299]
+layout_mode = 0
+offset_left = 70.0
+offset_right = 689.0
+offset_bottom = 31.0
+placeholder_text = "<output folder path goes here>"
+
+[node name="select_output_folder" type="Button" parent="CanvasLayer/body/w/VBoxContainer/parameters/output_dir" unique_id=1318589550]
+layout_mode = 0
+offset_left = 724.0
+offset_right = 845.0
+offset_bottom = 31.0
+text = "Select Folder..."
+
+[node name="ready" type="Control" parent="CanvasLayer/body" unique_id=619143377]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -68.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ready" type="Button" parent="CanvasLayer/body/ready" unique_id=141964553]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 16.0
+offset_right = 156.0
+offset_bottom = 47.0
+text = "Preview & Run"
+
+[node name="status" type="RichTextLabel" parent="CanvasLayer/body/ready" unique_id=742668734]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 19.0
+offset_right = 889.0
+offset_bottom = 45.0
+bbcode_enabled = true
+text = "[color=red]needs output folder!"
+scroll_active = false
+
+[connection signal="button_down" from="CanvasLayer/drag_window" to="." method="_on_drag_window_button_down"]
+[connection signal="button_up" from="CanvasLayer/drag_window" to="." method="_on_drag_window_button_up"]
+[connection signal="pressed" from="CanvasLayer/x" to="." method="_on_x_pressed"]
+[connection signal="pressed" from="CanvasLayer/minimize" to="." method="_on_minimize_pressed"]
+[connection signal="pressed" from="CanvasLayer/body/w/VBoxContainer/input/files/select_files" to="CanvasLayer/body/w/VBoxContainer/input" method="_on_select_files_pressed"]
+[connection signal="pressed" from="CanvasLayer/body/w/VBoxContainer/input/files/select_folder" to="CanvasLayer/body/w/VBoxContainer/input" method="_on_select_folder_pressed"]
+[connection signal="pressed" from="CanvasLayer/body/w/VBoxContainer/input/files/select_samplesheet" to="CanvasLayer/body/w/VBoxContainer/input" method="_on_select_samplesheet_pressed"]
+[connection signal="pressed" from="CanvasLayer/body/w/VBoxContainer/input/files/generate_samplesheet" to="." method="_on_generate_samplesheet_pressed"]
+[connection signal="pressed" from="CanvasLayer/body/w/VBoxContainer/parameters/output_dir/select_output_folder" to="." method="_on_select_output_folder_pressed"]

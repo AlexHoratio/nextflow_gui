@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dnbt8avkhlowv"]
+
+[ext_resource type="Script" uid="uid://b2o3bpevoyev" path="res://Prefabs/cell.gd" id="1_waxaa"]
+
+[node name="cell" type="Control" unique_id=1595927326]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_waxaa")
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="Panel" type="Panel" parent="." unique_id=1274659960]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="Label" type="Label" parent="Panel" unique_id=1590480566]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "sample"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_smooth_scroll_default_mouse_filter_set = true
