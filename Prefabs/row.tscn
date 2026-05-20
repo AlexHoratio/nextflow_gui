@@ -4,5 +4,6 @@
 
 [node name="row" type="HBoxContainer" unique_id=965106062]
 custom_minimum_size = Vector2(0, 38)
+theme_override_constants/separation = 2
 script = ExtResource("1_6fb4t")
 metadata/_smooth_scroll_default_mouse_filter_set = true

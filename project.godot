@@ -13,6 +13,7 @@ config_version=5
 config/name="nextflow gui"
 run/main_scene="uid://b6gf7i1gok7q3"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/bg_color=Color(0.05882353, 0.02745098, 0, 1)
 boot_splash/show_image=false
 config/icon="uid://bq3r1ob75lm5"
 
@@ -22,7 +23,11 @@ window/size/viewport_width=900
 window/size/viewport_height=900
 window/size/resizable=false
 window/size/borderless=true
+window/size/window_width_override=1350
+window/size/window_height_override=1350
 window/subwindows/embed_subwindows=false
+window/stretch/mode="canvas_items"
+window/per_pixel_transparency/allowed=true
 
 [editor_plugins]
 
@@ -34,5 +39,7 @@ enabled=PackedStringArray("res://addons/SmoothScroll/plugin.cfg", "res://addons/
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
-environment/defaults/default_clear_color=Color(0.9254902, 0.8627451, 0.5254902, 1)
+environment/defaults/default_clear_color=Color(0.05882353, 0.02745098, 0, 1)
+viewport/transparent_background=true

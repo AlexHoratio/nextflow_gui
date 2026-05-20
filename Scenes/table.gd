@@ -38,7 +38,7 @@ func update_col_widths_to_ideal() -> void:
 		total_width += width
 		
 	if total_width < get_parent().size.x:
-		var extra_to_last_cell = get_parent().size.x - total_width
+		var extra_to_last_cell = get_parent().size.x - total_width - 4
 		
 		for row in get_children():
 			row.get_child(row.get_children().size() - 1).custom_minimum_size.x += extra_to_last_cell

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dnbt8avkhlowv"]
 
 [ext_resource type="Script" uid="uid://b2o3bpevoyev" path="res://Prefabs/cell.gd" id="1_waxaa"]
+[ext_resource type="FontFile" uid="uid://b4sosf1h1d05x" path="res://Graphics/Fonts/basis33.regular.ttf" id="2_173wb"]
 
 [sub_resource type="FontVariation" id="FontVariation_waxaa"]
 
@@ -23,6 +24,8 @@ LineEdit/fonts/font = SubResource("FontVariation_waxaa")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_173wb")
 LineEdit/styles/read_only = SubResource("StyleBoxFlat_waxaa")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_173wb"]
+
 [node name="cell" type="Control" unique_id=1595927326]
 custom_minimum_size = Vector2(64, 32)
 layout_mode = 3
@@ -44,6 +47,7 @@ mouse_filter = 1
 metadata/_smooth_scroll_default_mouse_filter_set = true
 
 [node name="Label" type="LineEdit" parent="Panel" unique_id=875344331]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,6 +58,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme = SubResource("Theme_waxaa")
+theme_override_fonts/font = ExtResource("2_173wb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_173wb")
 text = "sample"
 metadata/_smooth_scroll_default_mouse_filter_set = true
 
