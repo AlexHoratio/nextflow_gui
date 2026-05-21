@@ -12,7 +12,8 @@
 [ext_resource type="Script" uid="uid://c1xmjgryowag" path="res://Scenes/ready.gd" id="6_salsw"]
 [ext_resource type="Texture2D" uid="uid://6mtw4g0s4h2y" path="res://Graphics/CanvasLayer/TreeBubbles/scientist.png" id="10_ib1yv"]
 [ext_resource type="Texture2D" uid="uid://bp5bganom3715" path="res://Graphics/CanvasLayer/TreeBubbles/empty.png" id="11_rfxh6"]
-[ext_resource type="Texture2D" uid="uid://bqm3gsbyyg7pa" path="res://Graphics/CanvasLayer/TreeBubbles/orteil.png" id="12_74ojv"]
+[ext_resource type="Texture2D" uid="uid://7ljoa0gtik7y" path="res://Graphics/CanvasLayer/TreeBubbles/orteil_2x.png" id="12_ef1tx"]
+[ext_resource type="Texture2D" uid="uid://bwej74dxbq55t" path="res://Graphics/CanvasLayer/TreeBubbles/empty_2x.png" id="13_ptisa"]
 [ext_resource type="Texture2D" uid="uid://djeseni5yc58j" path="res://Graphics/CanvasLayer/ojelly_k9patch.png" id="13_rfxh6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p8vjv"]
@@ -30,11 +31,21 @@ font_size = 32
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_ef1tx"]
+font_size = 32
+outline_size = 16
+outline_color = Color(0.9254902, 0.8627451, 0.5254902, 1)
+
 [sub_resource type="Resource" id="Resource_057lb"]
 script = ExtResource("3_qm5cq")
 
 [sub_resource type="Resource" id="Resource_6xyvr"]
 script = ExtResource("3_qm5cq")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ptisa"]
+font_size = 32
+outline_size = 16
+outline_color = Color(0.9254902, 0.8627451, 0.5254902, 1)
 
 [sub_resource type="Theme" id="Theme_74ojv"]
 CheckBox/icons/checked = ExtResource("10_ib1yv")
@@ -72,12 +83,28 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
-offset_top = 4.0
-offset_right = -4.0
-offset_bottom = -4.0
+offset_top = 257.0
+offset_right = -14.0
+offset_bottom = -81.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.05882353, 0.02745098, 0, 1)
+
+[node name="header_bg2" type="NinePatchRect" parent="CanvasLayer" unique_id=1396620238]
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -420.0
+offset_top = 28.0
+offset_right = 420.0
+offset_bottom = 256.0
+grow_horizontal = 2
+texture = ExtResource("2_057lb")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
 
 [node name="header_bg" type="NinePatchRect" parent="CanvasLayer" unique_id=787141621]
 texture_filter = 1
@@ -269,6 +296,20 @@ label_settings = SubResource("LabelSettings_b1vw1")
 horizontal_alignment = 1
 metadata/_smooth_scroll_default_mouse_filter_set = true
 
+[node name="header2" type="Label" parent="CanvasLayer/body/w/VBoxContainer/input/header" unique_id=269062579]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 37.0
+grow_horizontal = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("6_8b1if")
+text = "Input"
+label_settings = SubResource("LabelSettings_ef1tx")
+horizontal_alignment = 1
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
 [node name="files" type="ColorRect" parent="CanvasLayer/body/w/VBoxContainer/input" unique_id=885889526]
 layout_mode = 1
 anchors_preset = 5
@@ -398,13 +439,27 @@ layout_mode = 2
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 7.0
-offset_bottom = 44.0
+offset_top = 5.0
+offset_bottom = 42.0
 grow_horizontal = 2
 mouse_filter = 1
 theme_override_fonts/font = ExtResource("6_8b1if")
 text = "Parameters"
 label_settings = SubResource("LabelSettings_b1vw1")
+horizontal_alignment = 1
+metadata/_smooth_scroll_default_mouse_filter_set = true
+
+[node name="header2" type="Label" parent="CanvasLayer/body/w/VBoxContainer/parameters/header" unique_id=2083003065]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 37.0
+grow_horizontal = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("6_8b1if")
+text = "Parameters"
+label_settings = SubResource("LabelSettings_ptisa")
 horizontal_alignment = 1
 metadata/_smooth_scroll_default_mouse_filter_set = true
 
@@ -418,16 +473,16 @@ offset_bottom = 202.0
 [node name="run_amp" type="CheckBox" parent="CanvasLayer/body/w/VBoxContainer/parameters/screening_type" unique_id=330070581]
 layout_mode = 0
 offset_left = 6.0
-offset_top = -25.0
-offset_right = 493.0
-offset_bottom = 6.0
-scale = Vector2(2, 2)
+offset_top = -10.0
+offset_right = 502.0
+offset_bottom = 38.0
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_74ojv")
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("4_6xyvr")
-theme_override_font_sizes/font_size = 8
-theme_override_icons/checked = ExtResource("12_74ojv")
+theme_override_font_sizes/font_size = 16
+theme_override_icons/checked = ExtResource("12_ef1tx")
+theme_override_icons/unchecked = ExtResource("13_ptisa")
 text = "Activate anti-microbial peptide (AMP) genes screening tools"
 expand_icon = true
 script = SubResource("GDScript_salsw")
@@ -435,10 +490,9 @@ script = SubResource("GDScript_salsw")
 [node name="Label" type="Label" parent="CanvasLayer/body/w/VBoxContainer/parameters/screening_type/run_amp" unique_id=660870019]
 layout_mode = 0
 offset_left = 29.5
-offset_top = 10.0
-offset_right = 789.5
-offset_bottom = 33.0
-scale = Vector2(0.5, 0.5)
+offset_top = 12.0
+offset_right = 820.0
+offset_bottom = 35.0
 theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
@@ -450,26 +504,25 @@ vertical_alignment = 1
 [node name="run_arg" type="CheckBox" parent="CanvasLayer/body/w/VBoxContainer/parameters/screening_type" unique_id=1023689087]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 24.0
-offset_right = 502.0
-offset_bottom = 55.0
-scale = Vector2(2, 2)
+offset_top = 39.0
+offset_right = 509.0
+offset_bottom = 87.0
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_74ojv")
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("4_6xyvr")
-theme_override_font_sizes/font_size = 8
-theme_override_icons/checked = ExtResource("12_74ojv")
+theme_override_font_sizes/font_size = 16
+theme_override_icons/checked = ExtResource("12_ef1tx")
+theme_override_icons/unchecked = ExtResource("13_ptisa")
 text = "Activate anti-microbial resistance gene (ARG) screening tools"
 expand_icon = true
 script = SubResource("GDScript_salsw")
 
 [node name="Label" type="Label" parent="CanvasLayer/body/w/VBoxContainer/parameters/screening_type/run_arg" unique_id=1042232685]
 layout_mode = 0
-offset_top = 10.0
-offset_right = 819.0
-offset_bottom = 33.0
-scale = Vector2(0.5, 0.5)
+offset_top = 12.0
+offset_right = 820.0
+offset_bottom = 35.0
 theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
@@ -481,26 +534,25 @@ vertical_alignment = 1
 [node name="run_bgc" type="CheckBox" parent="CanvasLayer/body/w/VBoxContainer/parameters/screening_type" unique_id=1428898378]
 layout_mode = 0
 offset_left = 7.0
-offset_top = 73.0
+offset_top = 88.0
 offset_right = 494.0
-offset_bottom = 104.0
-scale = Vector2(2, 2)
+offset_bottom = 136.0
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_74ojv")
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("4_6xyvr")
-theme_override_font_sizes/font_size = 8
-theme_override_icons/checked = ExtResource("12_74ojv")
+theme_override_font_sizes/font_size = 16
+theme_override_icons/checked = ExtResource("12_ef1tx")
+theme_override_icons/unchecked = ExtResource("13_ptisa")
 text = "Activate biosynthetic gene cluster (BGC) screening tools"
 expand_icon = true
 script = SubResource("GDScript_salsw")
 
 [node name="Label" type="Label" parent="CanvasLayer/body/w/VBoxContainer/parameters/screening_type/run_bgc" unique_id=657877949]
 layout_mode = 0
-offset_top = 10.0
+offset_top = 12.0
 offset_right = 819.0
-offset_bottom = 33.0
-scale = Vector2(0.5, 0.5)
+offset_bottom = 35.0
 theme_override_colors/font_color = Color(0.74978, 0.74978, 0.74977994, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
@@ -594,6 +646,40 @@ theme_override_fonts/font = ExtResource("2_heolw")
 theme_override_font_sizes/font_size = 32
 text = "> Select folder..."
 underline = 1
+
+[node name="header_bg3" type="NinePatchRect" parent="CanvasLayer/body" unique_id=972268737]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -450.0
+offset_top = 112.0
+offset_right = 440.0
+offset_bottom = 128.0
+grow_horizontal = 2
+texture = ExtResource("2_057lb")
+region_rect = Rect2(0, 0, 96, 16)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+
+[node name="header_bg4" type="NinePatchRect" parent="CanvasLayer/body" unique_id=1586378839]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -450.0
+offset_top = 722.0
+offset_right = 440.0
+offset_bottom = 738.0
+grow_horizontal = 2
+texture = ExtResource("2_057lb")
+region_rect = Rect2(0, 80, 96, 16)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
 
 [node name="ready" type="Control" parent="CanvasLayer/body" unique_id=619143377]
 layout_mode = 1
